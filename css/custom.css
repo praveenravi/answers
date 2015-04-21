@@ -1,0 +1,40 @@
+#question_area {
+	margin-top: 5%;
+}
+
+#suggestion {
+		border: 1px solid #d1d1d1;
+    height: auto;
+    position: absolute;
+    width: 550px;
+    margin-top: -15px;
+    margin-left: 96px;
+		background-color:#F1F1F1;
+}
+
+.answers {
+
+}
+
+.results {
+    box-sizing: border-box;
+    /*cursor: pointer;*/
+    margin-bottom: 0.8em;
+    padding: 0.5em 0.7em;
+    position: relative;
+    word-wrap: break-word;
+}
+
+#suggestion ul {
+	list-style:none;
+	padding-left:2px;
+}
+
+#suggestion ul li{
+	text-align: left;
+
+}
+
+#suggestion ul li:hover{
+	background-color:#fff000;
+}
