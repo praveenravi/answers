@@ -32,15 +32,22 @@ function findAnswers($question,$question_prefix) {
 
 
     // what
-    if($question_prefix == '1') {
+    if($question_prefix == '1' || $question_prefix == '2' || $question_prefix == '3' || $question_prefix == '4') {
         // $answer_webHose = getAnswerFromWebhose($question);
         // $answer .= $answer_webHose;
+
+        $answer_bing = getAnsersFromBing($question);
+        $answer .= $answer_bing;
 
         $answer_wolpharmAlpha = getAnswerFromWolpharAlpha($question);
         $answer .= $answer_wolpharmAlpha;
 
+
+
         $answer_duckDuckGo = getAnswerFromDuckDuckGo($question);
         $answer .= $answer_duckDuckGo;
+
+        
     }
 
     // where
@@ -426,6 +433,72 @@ function getAnswerFromDuckDuckGo($question) {
 }
 
 
+
+function getAnsersFromBing($question) {
+  $accountKey = 'wxoEO+TfgAV8a0dwDet1c7Nl6TFTT29sLqeRK6brrHk=';
+ // $serviceRootURL =  'https://api.datamarket.azure.com/Bing/SearchWeb/';  
+  $serviceRootURL =  'https://api.datamarket.azure.com/Bing/Search/v1/';
+  $webSearchURL = $serviceRootURL . 'Web?$format=json&Query=';
+
+  $request = $webSearchURL . "%27" . urlencode( "$question" ) . "%27";
+
+  $process = curl_init($request);
+  curl_setopt($process, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+  curl_setopt($process, CURLOPT_USERPWD,  "$accountKey:$accountKey");
+  curl_setopt($process, CURLOPT_TIMEOUT, 30);
+  curl_setopt($process, CURLOPT_RETURNTRANSFER, TRUE);
+  $response = curl_exec($process);
+  $result = json_decode($response,TRUE);
+
+  //print_r($response);
+  if(($result != NULL) && (count($result['d']['results']) > 0)) {
+        $answer = '<table ><tbody>';
+        
+        $i = 0;
+        foreach ($result['d']['results'] as $key => $value) {
+          if($i < 5){
+            
+          
+           // print_r($value); exit();
+            // $answer .= '
+                        
+            //              <tr><td>'.$value['Title'].'</td></tr>
+            //              <tr> <td>'.$value['Description'].'</td></tr>
+            //              <tr><td><a href="'.$value['DisplayUrl'].'" target="_blank">'.$value['Url'].'</a></td></tr>
+            //              <tr><td><hr/></td></tr>
+                         
+                        
+            //          ';
+
+          $answer .= '<tr><td>';
+            $answer .= '<div class="results">';
+            $answer .= '<div class="answer_title"><b>'.$value['Title'].'</b></div>';
+           $answer .= '<div class="answer_description">'.$value['Description'].'</div>';
+            $answer .= '<div class="answer_url"><a href="'.$value['Url'].'">'.$value['DisplayUrl'].'</a></div>';
+            $answer .= '</div>';
+          //  $answer .= '<hr/>';
+            $answer .= '</td></tr>';
+            }
+             $i++;
+        }
+        $answer .= ' </tbody>
+                    </table>';
+    } else {
+        return ' ';
+    }
+    //print_r($result);
+    //exit();
+    return $answer;
+}
+
+
+
+
+
+
+
+
+
 function getAnswerFromWebhose($question) {
 	//Your API key is: 24517f6b-35e8-473c-a84d-f4554ae70611
         //prepare data for cUrl
@@ -476,32 +549,6 @@ function getAnswerFromWebhose($question) {
 
 function getAnswerFromWolpharAlpha($question) {
         $answer = '';
-		// $post = array(
-  //               'q' => $question
-  //         		);
-
-        //prepare data for cUrl
-        // $target_url = "http://localhost/ANS/ans/Controllers/simpleRequest.php";
-        // $ch = curl_init();
-        // curl_setopt($ch, CURLOPT_URL, $target_url);
-        // curl_setopt($ch, CURLOPT_POST,1);
-        // curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-
-        // $result = curl_exec ( $ch );
-        // $err = curl_errno ( $ch );
-        // $errmsg = curl_error ( $ch );
-        // $header = curl_getinfo ( $ch );
-        // $httpCode = curl_getinfo ( $ch, CURLINFO_HTTP_CODE );
-        // //print_r($result);
-        // $result = trim($result);
-        // if(empty($result)) {
-        // 	//echo "No results Found";
-        // 	return ' ';
-        // } else {
-        // 	echo $result;
-        // }
-
           $_REQUEST['q'] = $question;
           $appID = '6TRP89-YWAVE28ALA';
 

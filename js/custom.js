@@ -1,6 +1,7 @@
 $( document ).ready(function() {
 	console.log( "ready!" );
-	$('#loading_image').hide();
+	//$('#loading_image').hide();
+	$('#loading_image').fadeOut("slow")
 	$('#suggestion').hide();
 	//$('#suggestion').hide();
 	$('#question').focus();
@@ -70,6 +71,7 @@ Search
 		$('#suggestion').hide();
 		$('#answers').hide();
 		$('#loading_image').show();
+		//$('#loading_image').fadeOut("slow")
 		var question = $.trim($("#question").val());
 		var question_prefix = $.trim($("#question_prefix").val());
 
@@ -84,7 +86,8 @@ Search
 			    data : formData,
 			    success: function(data, textStatus, jqXHR)
 			    {
-			    	$('#loading_image').hide();
+			    	//$('#loading_image').hide();
+			    	$('#loading_image').fadeOut("slow");
 			    	//console.log(data);
 			    	//alert("herer");
 			        //data - response from server

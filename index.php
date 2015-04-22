@@ -66,12 +66,11 @@
 
     <div class="row">
       <div class="twelve columns"> 
-        <table id="loading_image" class="u-full-width">
-          <tr><td>
-             <img src="images/478.GIF" >    
-     
-          </td></tr>
-        </table>
+   
+
+          <!-- class="se-pre-con" Paste this code after body tag -->
+          <div  id="loading_image" ></div>
+          <!-- Ends -->
        
       <div id="answers" class="answers">
         
