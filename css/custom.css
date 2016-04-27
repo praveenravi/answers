@@ -9,7 +9,8 @@
     width: 550px;
     margin-top: -15px;
     margin-left: 96px;
-		background-color:#F1F1F1;
+	background-color:#F1F1F1;
+     z-index: 99999;
 }
 
 .answers {

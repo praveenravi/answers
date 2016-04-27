@@ -13,7 +13,7 @@ if(@$_POST['type'] == 'search') {
 
 	findAnswers($_POST['question'],$_POST['question_prefix']);
 } else if(@$_POST['type'] == 'suggestion') {
-  getGoogleSuggestions($_POST['question']);
+  //getGoogleSuggestions($_POST['question']);
 }
 
 
@@ -39,13 +39,13 @@ function findAnswers($question,$question_prefix) {
         $answer_bing = getAnsersFromBing($question);
         $answer .= $answer_bing;
 
-        $answer_wolpharmAlpha = getAnswerFromWolpharAlpha($question);
-        $answer .= $answer_wolpharmAlpha;
+       // $answer_wolpharmAlpha = getAnswerFromWolpharAlpha($question);
+       // $answer .= $answer_wolpharmAlpha;
 
 
 
-        $answer_duckDuckGo = getAnswerFromDuckDuckGo($question);
-        $answer .= $answer_duckDuckGo;
+        // $answer_duckDuckGo = getAnswerFromDuckDuckGo($question);
+        // $answer .= $answer_duckDuckGo;
 
         
     }
