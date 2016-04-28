@@ -28,8 +28,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
    <!-- <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>-->
-  <script src="js/jquery-1.11.2.js"></script>
-  <script src="js/custom.js"></script>
+  
 
 
   <!-- Favicon
@@ -39,6 +38,10 @@
 </head>
 <body>
 
+
+
+
+
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
@@ -46,22 +49,50 @@
       <div class="twelve columns" id="question_area">
         
        
-          <select name="question_prefix" id="question_prefix">
+        <!--   <select name="question_prefix" id="question_prefix">
             <option value="1">What</option>
             <option value="2">Why</option>
             <option value="3">How</option>
             <option value="4">When</option>
             <option value="5">Where</option>
             <option value="6">Who</option>
-          </select>
+          </select> -->
           <div id="suggestion">suggestions</div>
           <input type="text" name="question" id="question" size="60" placeholder="Ask your questions">
 
           &nbsp;
           <button type="submit" class="button-primary" id="search">Search</button>
         
+
+      
+
+
+
+
        
       </div>
+    </div>
+
+
+    <div class="row">
+      
+        <!-- SEARCH ENGINE RESULTS -->
+
+        <div class="four columns">
+        <p class="search-engine-label" style="display: none;">Google suggests:</p>
+        <ul id="goog-suggestions" class="sugg-ul"></ul>
+      </div>
+      <div class="four columns">
+        <p class="search-engine-label" style="display: none;">Bing suggests:</p>
+        <ul id="bing-suggestions" class="sugg-ul"></ul>
+      </div>
+     <div class="four columns">
+        <p class="search-engine-label" style="display: none;">Yahoo suggests:</p>
+        <ul id="yahoo-suggestions" class="sugg-ul"></ul>
+      </div>
+
+      <!-- ENDS HERE-->
+
     </div>
 
     <div class="row">
@@ -94,5 +125,25 @@
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <!-- The Modal -->
+<div id="myModal" class="modal">
+ <!-- Modal content -->
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close">×</span>
+    
+  </div>
+  <div class="modal-body">
+   
+  </div>
+  <div class="modal-footer">
+   <a href="#"> Save </a>
+  </div>
+</div>
+  </div>
+
+  <script src="js/jquery_and_jqueryui.js"></script>
+  <script src="js/custom.js"></script>
 </body>
 </html>

@@ -474,7 +474,7 @@ function getAnsersFromBing($question) {
             $answer .= '<div class="results">';
             $answer .= '<div class="answer_title"><b>'.$value['Title'].'</b></div>';
            $answer .= '<div class="answer_description">'.$value['Description'].'</div>';
-            $answer .= '<div class="answer_url"><a href="'.$value['Url'].'">'.$value['DisplayUrl'].'</a></div>';
+            $answer .= '<div class="answer_url"><a  target="_blank" href="'.$value['Url'].'">'.$value['DisplayUrl'].'</a></div>';
             $answer .= '</div>';
           //  $answer .= '<hr/>';
             $answer .= '</td></tr>';
